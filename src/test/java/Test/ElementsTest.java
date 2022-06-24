@@ -57,6 +57,7 @@ public class ElementsTest extends BaseTest {
 
    @Test (priority = 0)
     public void validInputTextBoxTest() throws InterruptedException {
+       //Testiramo TextBox stranicu, popunjavanjem svih polja sa ispravnim podacima
     homepagePage.clickOnElements();
     sidebarPage.clickOnTextBox();
     textBoxPage.insertFullName(fullNameInput);
@@ -71,6 +72,7 @@ public class ElementsTest extends BaseTest {
 
    @Test (priority = 1)
     public void invalidEmailFormatTextBoxTest(){
+       //Na TextBox stranici testiramo da li cemo uspesno submitovati ukoliko se unese pogresan email format
        homepagePage.clickOnElements();
        sidebarPage.clickOnTextBox();
        textBoxPage.insertFullName(fullNameInput);
@@ -92,16 +94,22 @@ public class ElementsTest extends BaseTest {
 
    @Test (priority = 2)
     public void radioButtonTest() throws InterruptedException {
+       //Ovde testiramo na stranici Radio Button da li je uspesno mozemo da kliknemo na svaki od dugmica. Takodje proveravamo
+       // ukoliko selektujemo jedno dugme, pa drugo, da li ce se prvo dugme odselektovati
        homepagePage.clickOnElements();
        sidebarPage.clickOnRadioButton();
        Thread.sleep(2000);
        radioButtonPage.clickOnYesButton();
 
+       Assert.assertFalse(radioButtonPage.getSelectedNoRadioBtn().isSelected());
+       Assert.assertFalse(radioButtonPage.getSelectedImpressiveRadioBtn().isSelected());
        Assert.assertTrue(radioButtonPage.getSelectedYesRadioBtn().isSelected());
        Assert.assertEquals(radioButtonPage.getSelectedText().getText(), radioButtonYesMessage);
 
        radioButtonPage.clickOnImpressiveButton();
 
+       Assert.assertFalse(radioButtonPage.getSelectedNoRadioBtn().isSelected());
+       Assert.assertFalse(radioButtonPage.getSelectedYesRadioBtn().isSelected());
        Assert.assertTrue(radioButtonPage.getSelectedImpressiveRadioBtn().isSelected());
        Assert.assertEquals(radioButtonPage.getSelectedText().getText(), radioButtonImpressiveMessage);
 

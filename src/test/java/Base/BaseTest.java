@@ -15,7 +15,15 @@ import org.testng.annotations.BeforeClass;
 import java.io.IOException;
 import java.time.Duration;
 
+//U ovom projektu koriscen je IntelliJIdea u kom je kreiran Maven projekat.
+//Prilikom testiranja koristim POM jer je laksi za odrzavanje, lakse se prati rad
+//Koristim i TestNG
+
 public class BaseTest {
+
+    //U ovom ispod delu deklarisem driver, webdriverwait ako bude potrebe i sve stranice koje cu testirati
+
+
     public WebDriver driver;
     public WebDriverWait wdwait;
     public ExcelReader excelReader;

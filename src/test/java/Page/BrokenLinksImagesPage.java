@@ -28,6 +28,7 @@ public class BrokenLinksImagesPage {
 
     //-------------------------------------------------------
 
+    //Ovde su napravljene metode koje sluze da kliknemo na link
     public void clickOnValidLink() {
         getValidLink().click();
     }
